@@ -22,6 +22,7 @@ h1 {
 
 ul, li, ol {
     list-style: none;
+    padding: 0;
 }
 
 a {
@@ -35,7 +36,7 @@ a:hover, a:focus {
     color: white;
 }
 
-img,video {
+img, video {
     max-width: 100%;
     height: auto;
 }
@@ -78,6 +79,17 @@ h5 {
 
 .color-white {
     color: white;
+}
+
+.elem {
+    display: block;
+    animation: animElem 0.5s 1;
+}
+
+@keyframes animElem {
+    0% {
+        opacity: 0;
+    }
 }
 
 /* main start */
@@ -361,38 +373,171 @@ h5 {
     grid-template-rows: repeat(2, 314px);
     margin-top: 60px;
 }
-.gallery__img{
+
+.gallery__img {
     height: 100%;
 }
-.gallery__video{
+
+.gallery__video {
     width: 555px;
 }
-.video{
+
+.video {
     position: relative;
 }
-.video__play{
+
+.video__play {
     position: absolute;
     top: 117px;
     left: 238px;
 }
-.gallery__video1{
+
+.gallery__video1 {
     grid-area: v1;
 }
-.gallery__video2{
+
+.gallery__video2 {
     grid-area: v2;
 }
-.gallery__img1{
+
+.gallery__img1 {
     grid-area: img1;
 }
-.gallery__img2{
+
+.gallery__img2 {
     grid-area: img2;
 }
-.gallery__img3{
+
+.gallery__img3 {
     grid-area: img3;
 }
-.gallery__img4{
+
+.gallery__img4 {
     grid-area: img4;
 }
+
+/* slider start */
+
+.slidur-wrap {
+    min-height: 700px;
+    margin-bottom: 150px;
+}
+
+.slidur-main, .slidus {
+    position: relative;
+}
+
+.slidur-main, .slidus, .slidu {
+    width: 1110px;
+    height: 505px;
+}
+
+.slidu {
+    position: absolute;
+    background-size: 1110px 505px;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1;
+    transition: 1s;
+}
+
+.showing {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slidu:nth-of-type(1) {
+    background-image: url(../images/pic11.jpg);
+}
+
+.slidu:nth-of-type(2) {
+    background-image: url(../images/pic22.jpg);
+}
+
+.slidu:nth-of-type(3) {
+    background-image: url(../images/pic33.jpg);
+}
+
+.slidu:nth-of-type(4) {
+    background-image: url(../images/pic44.jpg);
+}
+
+.slidu:nth-of-type(5) {
+    background-image: url(../images/pic55.jpg);
+}
+
+.toggle-arrow {
+    position: absolute;
+    z-index: 3;
+    font-size: 3rem;
+    background-color: white;
+    padding: 0px 10px 2px;
+    border-radius: 100%;
+    top: 210px;
+    cursor: pointer;
+}
+
+.arrow-previwe {
+    left: 5px;
+}
+
+.arrow-next {
+    right: 5px;
+}
+
+.toggle-radio {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 3;
+}
+
+.slidus-min {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: -125px;
+    width: 100%;
+}
+
+.slidu-min>img {
+    width: 200px;
+    height: 100px;
+}
+
+.showing-min {
+    box-shadow: 0 0 6px 6px orange;
+}
+
+/* canvas start */
+
+.canvas-wrap {
+    min-height: 500px;
+}
+
+.canvas {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    width: 900px;
+}
+
+.canvas__main {
+    width: 500px;
+    height: 300px;
+    border: 3px solid gray;
+    border-radius: 3px;
+}
+
+.canvas__paint {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 30px;
+}
+
 /*subscribe start  */
 
 .subscribe {
@@ -415,6 +560,56 @@ h5 {
     padding-left: 20px;
     margin-bottom: 15px;
     list-style: url(../images/subscribe__icon.png);
+}
+
+/* item-box start */
+.basket-shop-wrap{
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(128, 128, 128, 0.719);
+    z-index: 10001;
+}
+.cart{
+    position: relative;
+    width: 400px;
+    height: 250px;
+    border: 1px solid black;
+    background: rgb(228, 228, 228);
+    padding: 20px;
+    border-radius: 5px;
+    overflow: auto;
+}
+.close-baketShop-icon{
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    color: red;
+    cursor: pointer;
+}
+.products {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 10px;
+    margin-bottom: 60px;
+}
+.img-box>img{
+    width: 300px;
+    height: 300px;
+}
+#clear-cart{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+.btn-shop{
+    background-color: black;
+    color: white;
 }
 
 /* footer start */
@@ -459,10 +654,12 @@ h5 {
     padding-bottom: 10px;
     margin-bottom: 30px;
 }
-.foot__links{
+
+.foot__links {
     display: flex;
     justify-content: space-between;
 }
+
 .footest {
     display: flex;
     border-top: 1px solid #333333;
