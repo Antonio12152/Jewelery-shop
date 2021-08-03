@@ -199,11 +199,10 @@ const itemBox = document.querySelectorAll(".item-box")
 const cartContent = document.getElementById("cart-content")
 const clearCart = document.getElementById("clear-cart")
 itemBox.forEach(element => {
-    element.querySelector(".add-item").addEventListener("click", cart.addToCart.bind(this, ".item-title", ".item-prise", basketShopWrap))
+    element.querySelector(".add-item").addEventListener("click", cart.addToCart.bind(this, ".item-title", ".item-prise", basketShopWrap));
+    element.querySelector(".add-item").addEventListener("click", cart.openCart.bind(this, cartContent));
 });
-itemBox.forEach(element => {
-    element.querySelector(".add-item").addEventListener("click", cart.openCart.bind(this, cartContent))
-});
+
 const closeBaketShopIcon = document.getElementById("close-baketShop-icon")
 closeBaketShopIcon.addEventListener("click", () => basketShopWrap.style.display = "none")
 clearCart.addEventListener("click", cart.clearCart.bind(this,cartContent))

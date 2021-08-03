@@ -24,7 +24,7 @@ const cart = {
             itemTitle = parentBox.querySelector(title).innerHTML,
             itemPrice = parentBox.querySelector(price).innerHTML;
         if (!cartData.hasOwnProperty(itemId)) {
-            cartData[itemId] = [itemTitle, itemPrice, itemId]
+            cartData[itemId] = [itemTitle, itemPrice]
         }
         if (!cart.setCartData(cartData)) {
             event.target.disabled = false;
@@ -38,7 +38,7 @@ const cart = {
             totalItems = "<table class='shoping-list'><tr><th>Наименнование</th><th>Цена</th></tr>";
             for (let items in cartData) {
                 totalItems += "<tr>";
-                for (let i = 0; i < cartData[items].length - 1; i++) {
+                for (let i = 0; i < cartData[items].length; i++) {
                     totalItems += "<td>" + cartData[items][i] + "</td>";
                 }
                 totalItems += `<td><button class='close-cart' data-order=${items}>Удалить</button></td></tr>`;
